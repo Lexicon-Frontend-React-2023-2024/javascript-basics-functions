@@ -1,11 +1,16 @@
-showThis();
-
-function showThis() {
-  console.log(this);
+function fetchData(callback) {
+  setTimeout(function () {
+    const data = "Hello from callback";
+    callback(data);
+  }, 3000);
 }
 
-greeting();
+function handleData(data) {
+  console.log(data);
+}
 
-const greeting = function () {
-  console.log("Hello, how are you doing?");
-};
+function handleDataWithAlert(data) {
+  alert(data);
+}
+
+fetchData(handleDataWithAlert);
